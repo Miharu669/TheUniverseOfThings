@@ -1,7 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue';
 import { useAnimeStore } from '@/stores/anime';
 import { ref } from 'vue';
+
 
 const animeStore = useAnimeStore() 
 
@@ -14,6 +14,7 @@ animeStore.get()
 
 <template>
   <main>
-    <TheWelcome />
+    <h1>hello</h1>
   </main>
+  
 </template>
