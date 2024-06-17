@@ -1,16 +1,15 @@
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { defineStore } from 'pinia'
 import AnimeRepository from '@/core/apis/anime/animeRepository'
 
 export const useAnimeStore = defineStore('animes', () => {
 
-    // const uri = import.meta.env.VITE_API_ENDPOINT_ANIME
     const animes = ref ([])
     const isLoading = ref(false)
 
     const repo = new AnimeRepository(import.meta.env.VITE_API_ENDPOINT_ANIME)
 
-    async function setAnimes() {
+    async function getAnimes() {
         isLoading.value = true
         // animes.value = await repo.getAll()
         const response = await repo.getAll()
@@ -27,5 +26,5 @@ export const useAnimeStore = defineStore('animes', () => {
     //     console.log(data)
     // }
 
-    return { animes, isLoading, setAnimes }
+    return { animes, isLoading, getAnimes }
 })
