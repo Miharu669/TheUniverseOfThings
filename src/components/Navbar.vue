@@ -1,7 +1,7 @@
 <script setup>
 
 import { RouterLink, RouterView } from 'vue-router'
-const authStore = useAuthStore()
+
 </script>
 <template> 
     <header>
@@ -14,7 +14,7 @@ const authStore = useAuthStore()
       
       <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/Filter">Filter</RouterLink>
-        <RouterLink to="/Login" v-if="!authStore.user.isAuthenticated">Login</RouterLink>
+        <RouterLink to="/Login">Login</RouterLink>
         <RouterLink to="/Favorites">Favorites</RouterLink>
         <RouterLink to="/Add">Add</RouterLink>
         <RouterLink to="/About"><!--About--></RouterLink>

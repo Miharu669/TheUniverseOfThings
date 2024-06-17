@@ -10,7 +10,8 @@ const authStore = useAuthStore()
 </script>
 
 <template>
-  <Navbar></Navbar>
+ <Navbar></Navbar>
+
 
   <RouterView />
   <Footer></Footer>
