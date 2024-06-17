@@ -1,25 +1,27 @@
 <script setup>
-
+import { useAuthStore } from '@/stores/auth';
 import { RouterLink, RouterView } from 'vue-router'
-const authStore = useAuthStore()
+
 </script>
 <template> 
     <header>
-    <div>
-    <b-navbar variant="faded" type="light">
+    <div class="navbar Fixed-top" style="background-color:#272121">
+      <b-navbar>
       <b-navbar-brand href="#">
-        <img src="@/components/icons/logo-min.svg" class="d-inline-block align-top" alt="logo">
-        Animeverse
-      </b-navbar-brand>
+        <img src="@/components/icons/logo-min.svg" class="" alt="logo">
+        <RouterLink to="/" class="nav-link">Animeverse</RouterLink>
       
-      <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/Filter">Filter</RouterLink>
-        <RouterLink to="/Login" v-if="!authStore.user.isAuthenticated">Login</RouterLink>
-        <RouterLink to="/Favorites">Favorites</RouterLink>
-        <RouterLink to="/Add">Add</RouterLink>
-        <RouterLink to="/About"><!--About--></RouterLink>
-        <RouterLink to="/About"><!--About--></RouterLink>
+      <div class="">
+        
+        <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
+        <RouterLink to="/Login" class="nav-link" >Login</RouterLink> <!--v-if="!authStore.user.isAuthenticated"-->
+        <RouterLink to="/Favorites" class="nav-link">Favorites</RouterLink>
+        <RouterLink to="/Add" class="nav-link">Add</RouterLink>
+        <RouterLink to="/About" class="nav-link">About</RouterLink>
+      </div>
+      
 
+      </b-navbar-brand>
     </b-navbar>
   </div>
     </header>

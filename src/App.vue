@@ -1,11 +1,11 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import Footer from "./components/Footer.vue";
-import { useAuthStore } from "@/stores/auth.js";
 import Navbar from './components/Navbar.vue';
+import Footer from "./components/Footer.vue";
+import { RouterLink, RouterView } from 'vue-router'
+import { useAuthStore } from "@/stores/auth.js";
 
 
-const authStore = useAuthStore()
+
 
 </script>
 
@@ -28,7 +28,7 @@ nav {
   width: 100%;
   font-size: 12px;
   text-align: center;
-  margin-top: 2rem;
+  background-color: #272121!important;
 }
 
 nav a.router-link-exact-active {
