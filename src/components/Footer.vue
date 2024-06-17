@@ -10,3 +10,10 @@
     </template>
 
     <!-- color footer BCB2B2 - 181717 -->
+
+    <style scoped>
+  footer{
+    background-color: #181717 ;
+  }
+  
+  </style>
