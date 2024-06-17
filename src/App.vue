@@ -1,37 +1,24 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Footer from "./components/Footer.vue";
+import { useAuthStore } from "@/stores/auth.js";
+import Navbar from './components/Navbar.vue';
+
+
+const authStore = useAuthStore()
 
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+ <Navbar></Navbar>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/Filter">Filter</RouterLink>
-        <RouterLink to="/Signinup">Sign In/Up</RouterLink>
-        <RouterLink to="/Favorites">Favorites</RouterLink>
-        <RouterLink to="/Add">Add</RouterLink>
-        <RouterLink to="/About"><!--About--></RouterLink>
-        <RouterLink to="/About"><!--About--></RouterLink>
-      </nav>
-    </div>
-  </header>
-  
   <RouterView />
   <Footer></Footer>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
+
 
 .logo {
   display: block;
