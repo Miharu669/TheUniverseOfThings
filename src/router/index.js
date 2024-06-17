@@ -2,9 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Add from '../views/Add.vue'
-import Signinup from '../views/Signinup.vue'
+import Login from '../views/guards/LoginView.vue'
 import Favorites from '@/views/Favorites.vue'
 import Filter from '@/views/Filter.vue'
+import { useAuthStore } from '@/stores/auth'
 
 import HomeAnime from '../views/HomeAnime.vue'
 
@@ -19,7 +20,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: AboutView
+      component: () => import ('../views/AboutView.vue')
     },
     {
       path: '/add',
@@ -27,14 +28,15 @@ const router = createRouter({
       component: Add
     },
     {
-      path: '/Signinup',
-      name: 'signinup',
-      component: Signinup
+      path: '/Login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/Favorites',
       name: 'favorites',
-      component: Favorites
+      component: Favorites,
+      meta: { requiresAuth: true }
     },
     {
       path: '/Filter',
@@ -58,5 +60,13 @@ const router = createRouter({
       
   ]
 })
+
+router.beforeEach( (to, from) => {
+const store = useAuthStore()
+  if (to.meta.requiresAuth && !store.user.isAuthenticated) {
+return { name:'login' }
+  }
+
+} )
 
 export default router
