@@ -2,6 +2,7 @@
 import { useAuthStore } from '@/stores/auth';
 import { RouterLink, RouterView } from 'vue-router'
 
+
 </script>
 <template> 
     <header>

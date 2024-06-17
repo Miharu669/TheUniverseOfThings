@@ -10,7 +10,8 @@ import { useAuthStore } from "@/stores/auth.js";
 </script>
 
 <template>
-  <Navbar></Navbar>
+ <Navbar></Navbar>
+
 
   <RouterView />
   <Footer></Footer>
