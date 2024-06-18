@@ -1,6 +1,6 @@
 <script setup>
 import { computed, onMounted } from 'vue'
-import { useAnimeStore } from '../stores/animeStore.js'
+import { useAnimeStore } from '../stores/animeStore'
 
 const animeStore = useAnimeStore()
 const { animes, fetchAnimes } = animeStore
