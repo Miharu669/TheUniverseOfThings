@@ -3,7 +3,7 @@ import Navbar from './components/Navbar.vue';
 import Footer from "./components/Footer.vue";
 import { RouterLink, RouterView } from 'vue-router'
 import { useAuthStore } from "@/stores/auth.js";
-import Navbar from './components/Navbar.vue';
+
 
 
 
