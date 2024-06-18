@@ -2,10 +2,7 @@
 import { useAnimeStore } from '@/stores/anime';
 import { ref } from 'vue';
 import AnimeListTest from '@/components/AnimeListTest.vue'
-const store = useAnimeStore()
-store.getAnimes()
 
-// const anime = ref ([])
 
 
 </script>

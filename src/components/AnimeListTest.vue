@@ -5,10 +5,10 @@ import { onMounted } from 'vue';
 const animeStore = useAnimeStore();
 
 onMounted(async () => {
-    await animeStore.getAnimes();
-    
+    await animeStore.getAnimes(); 
 });
 console.log('AnimeListTest', animeStore);
+
 </script>
 
 <template>

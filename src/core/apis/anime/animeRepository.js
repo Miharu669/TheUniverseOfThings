@@ -13,7 +13,7 @@ export default class AnimeRepository extends Repository {
             const data = await response.json()
             return data
         } catch (error) {
-            throw new Error('Error loading Anime API')
+            throw new Error('Error loading Anime API ' + error.message)
         }
     }
 }
