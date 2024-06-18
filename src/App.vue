@@ -5,6 +5,7 @@ import { useAuthStore } from "@/stores/auth.js";
 import Navbar from './components/Navbar.vue';
 
 
+
 const authStore = useAuthStore()
 
 </script>
@@ -14,6 +15,7 @@ const authStore = useAuthStore()
 
 
   <RouterView />
+
   <Footer></Footer>
 </template>
 

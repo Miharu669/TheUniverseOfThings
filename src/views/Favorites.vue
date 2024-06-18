@@ -1,16 +1,20 @@
 <template>
-    <div class="favorites">
-      <h1>This is an favorites page</h1>
-    </div>
-  </template>
-  
-  <style>
-  @media (min-width: 1024px) {
-    .favorites {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
+  <div>
+    <h1>Favorites</h1>
+    <Pagination />
+  </div>
+</template>
+
+<script>
+import Pagination from '@/components/Pagination.vue';
+
+export default {
+  name: 'Favorites',
+  components: {
+    Pagination
   }
-  </style>
-  
+}
+</script>
+
+<style scoped>
+</style>
