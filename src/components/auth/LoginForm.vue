@@ -32,30 +32,26 @@ function login() {
   <div class="container">
     <div class="row justify-content-center mt-5">
       <div class="col-md-8">
-        <div class="row gx-0 align-items-stretch">
-          <div class="col-md-6">
-            <div class="card h-100 full-card">
-              <div class="card-body p-0">
-                <img :src="totoroPic" alt="Image" class="img-fluid">
+        <div class="card h-100">
+          <div class="card-body d-flex align-items-stretch">
+            <div class="row gx-0">
+              <div class="col-md-6">
+                <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100 card-with-opacity">
-              <div class="card-body d-flex flex-column justify-content-center">
+              <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: #363333; color: #F6E9E9; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                 <form @submit.prevent="login" class="text-left">
                   <h4 class="card-title mb-4">Welcome!</h4>
-                  <p style="color: #BCB2B2">Login to your account</p>
+                  <p>Login to your account</p>
                   <div class="form-group mb-3">
-                    <label style="color: #BCB2B2" for="username">Username</label>
-                    <input type="text" style="background-color: #BCB2B2" class="form-control" id="username" placeholder="Please enter your username" v-model="username" required>
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Please enter your username" v-model="username" required>
                   </div>
                   <div class="form-group mb-3">
-                    <label style="color: #BCB2B2" for="password">Password</label>
-                    <input type="password" style="background-color: #BCB2B2" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
                   </div>
-                  <button type="submit" id="login-btn" class="btn btn-sm btn-orange w-50">Login</button> 
-                  <!-- <p>Don't have an account? Sign In</p> -->
+                  <button type="submit" class="btn btn-sm btn-orange mt-3">Sign in</button>
+                  <p>Don't have an account? <a style="color:#E16428;">Sign Up</a></p>
                 </form>
               </div>
             </div>
@@ -68,64 +64,61 @@ function login() {
 
 <style scoped>
 .card {
-  margin-top: 20px;
   border-radius: 10px;
-  
-}
-
-.full-card .card-body {
-  padding: 0; 
-  
-}
-
-.full-card img {
-  object-fit: cover; 
-  height: 100%;
-  width: 100%;
-  border-radius: 10px;
+  width: 600px;
 }
 
 .card-body {
-  height: 100%;
-  background-color: #363333; 
-  color: #F6E9E9;
-  display: flex;
-  flex-direction: column;
-  justify-content: left;
-  align-items: left; 
-  padding: 20px; 
-  border-radius: 10px;
+  padding: 0; 
+}
+
+.img-fluid {
+  object-fit: cover;
+  height: 100%; 
+  width: 100%;
 }
 
 .btn-orange {
-  background-color: #E16428; 
-  color: #F6E9E9; 
+  background-color: #E16428;
+  color: #F6E9E9;
+  border-radius: 40px;
   font-size: large;
+
 }
 
 .btn-orange:hover {
-  background-color: #c04e22; 
-}
-
-.btn-sm {
-  width: 50%; 
-  margin-top: 10px; 
-  border-radius: 30px;
-  height: 40px;
-}
-
-.form-group {
-  margin-bottom: 1rem; 
+  background-color: #c04e22;
   
 }
 
-.text-left {
-  text-align: left; 
+.btn-sm {
+  height: 40px; 
+  width: 80px;
 }
 
-.card-title{
-  margin:0;
+form{
+  margin: 20px;
 }
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.card-title {
+  margin: 0;
+}
+
+p{
+  font-size: small;
+  margin-top: 10px;
+}
+
+
 </style>
 
 <!-- <template>
