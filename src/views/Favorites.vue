@@ -1,16 +1,15 @@
 <template>
-    <div class="favorites">
-      <h1>This is an favorites page</h1>
-    </div>
-  </template>
-  
-  <style>
-  @media (min-width: 1024px) {
-    .favorites {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-    }
-  }
-  </style>
-  
+  <div>
+    <h1>Favorites</h1>
+    <p>pagina de favoritos</p>
+    <Pagination />
+  </div>
+</template>
+
+<script>
+import Pagination from '@/components/Pagination.vue';
+
+</script>
+
+<style scoped>
+</style>
