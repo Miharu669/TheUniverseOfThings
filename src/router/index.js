@@ -7,6 +7,7 @@ import Favorites from '@/views/Favorites.vue'
 import Filter from '@/views/Filter.vue'
 import { useAuthStore } from '@/stores/auth'
 
+import HomeAnime from '../views/HomeAnime.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -50,6 +51,13 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/Signinup.vue')
     } */
+
+      {
+        path: '/HomeAnime',
+        name: 'homeAnime',
+        component: HomeAnime
+      } 
+      
   ]
 })
 
