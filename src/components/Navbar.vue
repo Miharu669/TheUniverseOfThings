@@ -1,69 +1,83 @@
 <script setup>
 import { useAuthStore } from "@/stores/auth";
 import { RouterLink } from "vue-router";
-import { ref } from "vue";
 
-// Acceder a la tienda de autenticación
 const store = useAuthStore();
 </script>
+
 <template>
-  <b-navbar toggleable="lg" type="dark" variant="dark" class="navbar fixed-top">
-    <b-navbar-brand>
-      <RouterLink to="/">
-        <img src="@/components/icons/logo-big.svg" alt="logo" />
-      </RouterLink>
-    </b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-    <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav class="ml-auto">
-        <b-nav-item v-if="store.user.isAuthenticated">
-          <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
-        </b-nav-item>
-        <b-nav-item v-if="store.user.isAuthenticated">
-          <RouterLink to="/Favorites" class="nav-link">Favorites</RouterLink>
-        </b-nav-item>
-        <b-nav-item v-if="store.user.isAuthenticated">
-          <RouterLink to="/Add" class="nav-link">Add</RouterLink>
-        </b-nav-item>
-        <b-nav-item v-if="!store.user.isAuthenticated" class="btnloginav">
-          <RouterLink to="/Login" class="nav-link btn"> Sign in </RouterLink>
-        </b-nav-item>
-      </b-navbar-nav>
-    </b-collapse>
-  </b-navbar>
+  <nav class="navbar navbar-expand-lg navbar dark fixed-top">
+  <div class="container-fluid">
+  <a href="" class="navbar-brand me-5"> 
+    <RouterLink to="/">
+          <img src="@/components/icons/logo-big.svg" alt="logo" />
+        </RouterLink>
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
+              <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
+            </a>
+                    </li>
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
+              <RouterLink to="/Favorites" class="nav-link">Favorites</RouterLink>
+            </a>
+                    </li>
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
+              <RouterLink to="/Add" class="nav-link">Add</RouterLink>
+            </a>
+                    </li>
+                    <li>
+                      <b-nav-item v-if="!store.user.isAuthenticated" class="btnloginav">
+                      <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
+            </b-nav-item>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </template>
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: $darker !important;
+  background-color: #181717 !important;
 }
 
-.navbar-nav .nav-link {
-  color: $light;
+.nav-link {
+  color: #e16428;
+  font-family: "Poppins", sans-serif;
 }
 
 .btnloginav {
-  background-color: $orange !important;
+  background-color: #e16428 !important;
   border-radius: 30px;
-  border-color: $orange !important;
+  border-color: #e16428 !important;
   display: flex;
   align-items: center;
 
   .nav-link {
-    color: $light !important;
+    color: #f6e9e9 !important;
     border-radius: 30px !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: $orange !important;
+    border-color: #e16428 !important;
     padding: 5px 15px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
 
     &:hover {
-      color: $light !important;
-      background-color: $orange !important;
-      border-color: $orange !important;
+      color: #f6e9e9 !important;
+      background-color: #e16428 !important;
+      border-color: #e16428 !important;
     }
   }
 }
