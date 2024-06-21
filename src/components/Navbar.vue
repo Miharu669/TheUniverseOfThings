@@ -6,37 +6,44 @@ const store = useAuthStore();
 </script>
 
 <template>
-  <nav>
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="navbar fixed-top">
-      <b-navbar-brand>
-        <RouterLink to="/">
+  <nav class="navbar navbar-expand-lg navbar dark fixed-top">
+  <div class="container-fluid">
+  <a href="" class="navbar-brand me-5"> 
+    <RouterLink to="/">
           <img src="@/components/icons/logo-big.svg" alt="logo" />
         </RouterLink>
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-          <b-dropdown text="More" variant="link" class="nav-link">
-            <b-nav-item v-if="store.user.isAuthenticated">
+  </a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
               <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
-            </b-nav-item>
-            <b-nav-item v-if="store.user.isAuthenticated">
+            </a>
+                    </li>
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
               <RouterLink to="/Favorites" class="nav-link">Favorites</RouterLink>
-            </b-nav-item>
-            <b-nav-item v-if="store.user.isAuthenticated">
+            </a>
+                    </li>
+                    <li class="nav-item">
+                      <a v-if="store.user.isAuthenticated">
               <RouterLink to="/Add" class="nav-link">Add</RouterLink>
+            </a>
+                    </li>
+                    <li>
+                      <b-nav-item v-if="!store.user.isAuthenticated" class="btnloginav">
+                      <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
             </b-nav-item>
-            <b-nav-item>
-              <!-- Puedes añadir aquí los elementos del menú desplegable si es necesario -->
-            </b-nav-item>
-          </b-dropdown>
-        </b-navbar-nav>
-      </b-collapse>
-      <b-nav-item v-if="!store.user.isAuthenticated" class="btnloginav">
-        <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
-      </b-nav-item>
-    </b-navbar>
-  </nav>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </template>
 
 <style lang="scss" scoped>
@@ -44,8 +51,9 @@ const store = useAuthStore();
   background-color: #181717 !important;
 }
 
-.navbar-nav .nav-link {
-  color: #f6e9e9;
+.nav-link {
+  color: #e16428;
+  font-family: "Poppins", sans-serif;
 }
 
 .btnloginav {
