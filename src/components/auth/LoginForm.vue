@@ -38,7 +38,7 @@ function login() {
               <div class="col-md-6">
                 <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-              <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: #363333; color: #F6E9E9; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+              <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: $light; color: #F6E9E9; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
                 <form @submit.prevent="login" class="text-left">
                   <h4 class="card-title mb-4">Welcome!</h4>
                   <p>Login to your account</p>
@@ -62,10 +62,11 @@ function login() {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .card {
   border-radius: 10px;
   width: 600px;
+  font-family: "Poppins", sans-serif;
 }
 
 .card-body {
@@ -79,8 +80,8 @@ function login() {
 }
 
 .btn-orange {
-  background-color: #E16428;
-  color: #F6E9E9;
+  background-color:$orange !important;
+  color: $light;
   border-radius: 40px;
   font-size: large;
 
