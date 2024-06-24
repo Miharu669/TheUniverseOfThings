@@ -54,7 +54,7 @@ function login() {
                     <label for="password">Confirm Password</label>
                     <input type="password" class="form-control" id="password2" placeholder="Please confirm your password" v-model="password" required>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-orange mt-3">Sign Up</button>
+                  <button type="submit" class="btn btn-sm btn-orange mt-3"><router-link to="/login" style="color:#E16428;"> Sign Up</router-link></button>
                 </form>
               </div>
             </div>
