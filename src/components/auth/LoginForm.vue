@@ -38,7 +38,7 @@ function login() {
               <div class="col-md-6">
                 <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-              <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: $light; color: #F6E9E9; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+              <div id = "form-col" class="col-md-6 d-flex flex-column justify-content-center">
                 <form @submit.prevent="login" class="text-left">
                   <h4 class="card-title mb-4">Welcome!</h4>
                   <p>Login to your account</p>
@@ -51,7 +51,7 @@ function login() {
                     <input type="password" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
                   </div>
                   <button type="submit" class="btn btn-sm btn-orange mt-3">Sign in</button>
-                  <p>Don't have an account? <a style="color:#E16428;">Sign Up</a></p>
+                  <p>Don't have an account? <a style="color:#E16428;"> Sign Up</a></p>
                 </form>
               </div>
             </div>
@@ -67,6 +67,7 @@ function login() {
   border-radius: 10px;
   width: 600px;
   font-family: "Poppins", sans-serif;
+  margin-top: 50px;
 }
 
 .card-body {
@@ -88,13 +89,21 @@ function login() {
 }
 
 .btn-orange:hover {
-  background-color: #c04e22;
+  background-color: #ffddd0;
   
 }
 
 .btn-sm {
   height: 40px; 
   width: 80px;
+}
+
+#form-col{
+  background-color: $main; 
+  color: $light; 
+  border-top-right-radius: 10px; 
+  border-bottom-right-radius: 10px;
+
 }
 
 form{
@@ -104,6 +113,7 @@ form{
 
 .form-group {
   margin-bottom: 1rem;
+  color: $ligth-p; 
 }
 
 .text-left {
@@ -112,11 +122,20 @@ form{
 
 .card-title {
   margin: 0;
+  color: $ligth;
 }
 
 p{
   font-size: small;
   margin-top: 10px;
+  color: $ligth-p;
+}
+
+#username, #password{
+  background-color: rgba($ligth-p, 0.1);
+  border-radius: 10px;
+  color: $ligth-p; 
+  font-size: 15px;
 }
 
 
