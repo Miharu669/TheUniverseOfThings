@@ -1,6 +1,7 @@
 <script setup>
 import { useAnimeStore } from '@/stores/anime';
 import { onMounted } from 'vue';
+import Spinner from './Spinner.vue';
 
 const animeStore = useAnimeStore();
 
@@ -14,7 +15,7 @@ console.log('AnimeListTest', animeStore);
 <template>
   <div>
     <h1>Anime List</h1>
-    <div v-if="animeStore.isLoading">Loading...</div>
+    <Spinner v-if="animeStore.isLoading"/>
     <div v-else>
       <ul>
         <li v-for="anime in animeStore.animes" :key="anime.getTitle()">
