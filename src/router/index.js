@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Add from '../views/Add.vue'
 import Login from '../views/guards/LoginView.vue'
+import SignUp from '@/components/auth/SignUpForm.vue'
 import Favorites from '@/views/Favorites.vue'
 import Filter from '@/views/Filter.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -31,6 +32,11 @@ const router = createRouter({
       path: '/Login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/SignUp',
+      name: 'signup',
+      component: SignUp
     },
     {
       path: '/Favorites',
