@@ -1,3 +1,7 @@
+<script setup>
+import Pagination from '@/components/Pagination.vue';
+
+</script>
 <template>
   <div>
     <h1>Favorites</h1>
@@ -6,10 +10,7 @@
   </div>
 </template>
 
-<script>
-import Pagination from '@/components/Pagination.vue';
 
-</script>
 
 <style scoped>
 </style>
