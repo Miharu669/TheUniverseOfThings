@@ -19,7 +19,7 @@ const store = useAuthStore();
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ">
                     <li class="nav-item">
                       <a v-if="store.user.isAuthenticated">
               <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
@@ -91,16 +91,21 @@ const store = useAuthStore();
 }
 
 .nav-link {
-  color: $orage;
+  color: $orange;
   font-family: "Poppins", sans-serif;
 }
+.navbar-nav {
 
+ color: $light;
+
+}
 .btnloginav {
-  background-color: $orage !important;
+  background-color: $orange !important;
   border-radius: 30px;
-  border-color: $orage !important;
+  border-color: $orange !important;
   display: flex;
   align-items: center;
+  color: $light;
 
   .nav-link {
     color: #f6e9e9 !important;
@@ -108,15 +113,15 @@ const store = useAuthStore();
     display: flex;
     align-items: center;
     justify-content: center;
-    border-color: $orage !important;
+    border-color: $orange !important;
     padding: 5px 15px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
 
     &:hover {
       color: $light !important;
-      background-color: $orage !important;
-      border-color: $orage !important;
+      background-color: $orange !important;
+      border-color: $orange !important;
     }
   }
 }
