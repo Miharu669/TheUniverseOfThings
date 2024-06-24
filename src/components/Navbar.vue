@@ -94,9 +94,9 @@ const store = useAuthStore();
   color: $orange;
   font-family: "Poppins", sans-serif;
 }
-.navbar-nav {
-
- color: $light;
+.nav-link:hover {
+  text-decoration: none!important;
+color: $light !important;
 
 }
 .btnloginav {
@@ -105,10 +105,10 @@ const store = useAuthStore();
   border-color: $orange !important;
   display: flex;
   align-items: center;
-  color: $light;
+  color:$light;
 
   .nav-link {
-    color: #f6e9e9 !important;
+    color: $light !important;
     border-radius: 30px !important;
     display: flex;
     align-items: center;
