@@ -29,51 +29,97 @@ function login() {
 
 
 <template>
-    <div class="container">
-      <div class="row justify-content-center mt-5">
-        <div class="col-md-8">
-          <div class="card">
-            <div class="card-body d-flex">
-
-              <div class="img-container mr-4">
-                <img :src="totoroPic" alt="Image" class="img-fluid">
+  <div class="container">
+    <div class="row justify-content-center mt-5">
+      <div class="col-md-8">
+        <div class="card h-100">
+          <div class="card-body d-flex align-items-stretch">
+            <div class="row gx-0">
+              <div class="col-md-6">
+                <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-  
-              <form class="flex-grow-1" @submit.prevent="login">
-                <h3 class="card-title text-center mb-4">Login</h3>
-  
-    
-                <div class="form-group">
-                  <label for="username">Username</label>
-                  <input type="text" class="form-control" id="username" v-model="username" required>
-                </div>
-  
-        
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password" class="form-control" id="password" v-model="password" required>
-                </div>
-  
-    
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
-              </form>
+              <div class="col-md-6 d-flex flex-column justify-content-center" style="background-color: #363333; color: #F6E9E9; border-top-right-radius: 10px; border-bottom-right-radius: 10px;">
+                <form @submit.prevent="login" class="text-left">
+                  <h4 class="card-title mb-4">Welcome!</h4>
+                  <p>Login to your account</p>
+                  <div class="form-group mb-3">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Please enter your username" v-model="username" required>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
+                  </div>
+                  <button type="submit" class="btn btn-sm btn-orange mt-3">Sign in</button>
+                  <p>Don't have an account? <a style="color:#E16428;">Sign Up</a></p>
+                </form>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </template>
+  </div>
+</template>
+
+<style scoped>
+.card {
+  border-radius: 10px;
+  width: 600px;
+}
+
+.card-body {
+  padding: 0; 
+}
+
+.img-fluid {
+  object-fit: cover;
+  height: 100%; 
+  width: 100%;
+}
+
+.btn-orange {
+  background-color: #E16428;
+  color: #F6E9E9;
+  border-radius: 40px;
+  font-size: large;
+
+}
+
+.btn-orange:hover {
+  background-color: #c04e22;
   
-  <style scoped>
-  .card {
-    margin-top: 20px;
-  }
-  
-  .img-container {
-    width: 150px;
-    margin-right: 20px;
-  }
-  </style>
+}
+
+.btn-sm {
+  height: 40px; 
+  width: 80px;
+}
+
+form{
+  margin: 20px;
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.card-title {
+  margin: 0;
+}
+
+p{
+  font-size: small;
+  margin-top: 10px;
+}
+
+
+</style>
 
 <!-- <template>
 <div>
