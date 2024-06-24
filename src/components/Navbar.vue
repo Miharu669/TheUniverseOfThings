@@ -87,7 +87,7 @@ const store = useAuthStore();
 
 <style lang="scss" scoped>
 .navbar {
-  background-color: #181717 !important;
+  background-color: $darker !important;
 }
 
 .nav-link {
