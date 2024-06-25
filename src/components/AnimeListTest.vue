@@ -28,7 +28,8 @@ const limitedAnimes = computed(() => animeStore.animes.slice(randomNumber-6,rand
     <div class="anime-grid" v-else >
       <ul>
         <!-- <li v-for="anime in animeStore.animes" :key="anime.getTitle()"> -->
-          <li v-for="anime in limitedAnimes" :key="anime.getTitle()" class="anime-item"> 
+          <!-- <li v-for="anime in limitedAnimes" :key="anime.getTitle()" class="anime-item">  -->
+          <li v-for="anime in animeStore.animes" :key="anime.getTitle()" class="anime-item"> 
           <img :src="anime.getImg()" alt="Anime Image" class="anime-image">
           <div class="contenedor-detalle">
             <h3>{{ anime.getTitle() }}</h3>
