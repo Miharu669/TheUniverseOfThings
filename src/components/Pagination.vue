@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style scoped>
+nav{
+  font-family: "Poppins", sans-serif;
+}
 .pagination {
   display: flex;
   justify-content: center;
