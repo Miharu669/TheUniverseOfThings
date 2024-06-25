@@ -1,5 +1,5 @@
 <script setup>
-import Navbar from './components/Navbar.vue';
+import Navbar from './components/Navbar2.vue';
 import Footer from "./components/Footer.vue";
 import { RouterLink, RouterView } from 'vue-router'
 import { useAuthStore } from "@/stores/auth.js";
