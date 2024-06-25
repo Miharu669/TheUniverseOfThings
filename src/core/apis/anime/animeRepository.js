@@ -6,10 +6,10 @@ export default class AnimeRepository extends Repository {
         super(uri)
     }
 
-    async getAll() {
+    async getAll(page = 1, itemsPerPage = 6) {
 
         try {
-            const response = await fetch(this.uri)
+            const response = await fetch(`${this.uri}?page=${page}&limit=${itemsPerPage}`)
             const data = await response.json()
             return data
         } catch (error) {
