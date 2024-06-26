@@ -21,8 +21,14 @@ import { useAuthStore } from "@/stores/auth.js";
   <Footer></Footer>
 </template>
 
-<style scoped>
-
-
+<style lang="scss" >
+#app{
+  background-color: $dark;
+}
+main {
+  width: 100%!important;
+  margin: 0 auto!important;
+  background-color: $dark;
+}
 
 </style>

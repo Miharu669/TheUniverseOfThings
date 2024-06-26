@@ -34,7 +34,7 @@ function register() {
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card h-100">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
@@ -69,11 +69,18 @@ function register() {
 </template>
 
 <style lang="scss" scoped>
+
+.container{
+  height: 100vh;
+  margin-inline: auto;
+}
+
 .card {
   border-radius: 10px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   font-family: "Poppins", sans-serif;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .card-body {
@@ -92,11 +99,6 @@ function register() {
   border-radius: 40px;
   font-size: 15px;
 
-}
-
-.btn-orange:hover {
-  background-color: #ffddd0;
-  
 }
 
 .btn-sm {
@@ -143,6 +145,32 @@ p{
   color: $ligth-p; 
   font-size: 15px;
   height: 50px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    height: 100vh;
+    margin-inline: auto;
+  }
+
+  .img-fluid {
+    display: none;
+  }
+
+  .card {
+    width: 100%; 
+    max-width: none; 
+  }
+
+  .card-body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #form-col {
+    border-radius: 10px;
+    padding: 20px;
+  }
 }
 
 
