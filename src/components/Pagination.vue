@@ -24,7 +24,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 nav{
   font-family: "Poppins", sans-serif;
 }
@@ -40,24 +40,26 @@ nav{
 }
 
 .page-link {
-  color: #F6E9E9;
+  color: $ligth;
   text-decoration: none;
-  background-color: #363333; /* Color de fondo para los números de paginación */
-  padding: 10px; /* Agregar padding para hacer el fondo más visible */
-  border-radius: 5px; /* Bordes redondeados para una mejor apariencia */
+  background-color: $main; 
+  padding: 10px; 
+  border-radius: 5px; 
+  box-shadow: none !important;
 }
 
 .page-link:hover {
-  background-color: #E16428;
+  background-color: $orange !important;
+  box-shadow: none !important;
 }
 
 .page-link.active {
- color: #E16428; /* Color de fondo cuando el número está seleccionado */
+ color: $orange; 
 }
 
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
-  background-color: #D9D9D9; /* Color para los enlaces "Previous" y "Next" */
+  background-color: #D9D9D9; 
 }
 </style>
 
