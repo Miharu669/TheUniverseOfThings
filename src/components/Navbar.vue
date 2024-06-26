@@ -73,6 +73,7 @@ function handleLogout() {
 .nav-link {
   color: $orange;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 
 .nav-link:hover {
@@ -84,21 +85,21 @@ function handleLogout() {
   background-color: $orange !important;
   border-radius: 30px;
   border-color: $orange !important;
-  display: flex;
+  display: inline-flex; 
   align-items: center;
   color: $light;
 
   .nav-link {
     color: $light !important;
     border-radius: 30px !important;
-    display: flex;
+    display: inline-flex; 
     align-items: center;
     justify-content: center;
     border-color: $orange !important;
     padding: 5px 15px;
     font-size: 12px;
     font-family: "Poppins", sans-serif;
-
+ 
     &:hover {
       color: $light !important;
       background-color: $orange !important;
