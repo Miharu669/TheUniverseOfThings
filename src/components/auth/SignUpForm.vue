@@ -35,7 +35,7 @@ function register() {
   <div class="container">
     <div class="row justify-content-center mt-5">
       <div class="col-md-6">
-        <div class="card no-border">
+        <div class="card h-100 no-border">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
               <div class="col-md-6">
@@ -70,7 +70,7 @@ function register() {
 
 <style lang="scss" scoped>
 
-.container{
+.container {
   height: 100vh;
   margin-inline: auto;
 }
@@ -79,56 +79,53 @@ function register() {
   border-radius: 10px;
   width: 100%;
   max-width: 600px;
-  min-height: 100%;
   font-family: "Poppins", sans-serif;
   margin-top: 90px;
+  min-height: 500px; 
 }
 
 .card-body {
-  padding: 0; 
+  padding: 0;
   background-color: $dark !important;
 }
 
 .no-border {
-  border: none; 
-  box-shadow: none; 
+  border: none;
+  box-shadow: none;
 }
 
 .img-fluid {
   object-fit: cover;
-  height: 100%; 
+  height: 100%;
   width: 100%;
 }
 
 .btn-orange {
-  background-color:$orange !important;
+  background-color: $orange !important;
   color: $light;
   border-radius: 40px;
   font-size: 15px;
-
 }
 
 .btn-sm {
-  height: 40px; 
+  height: 40px;
   width: 80px;
 }
 
-#form-col{
-  background-color: $main; 
-  color: $light; 
-  border-top-right-radius: 10px; 
+#form-col {
+  background-color: $main;
+  color: $light;
+  border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-
 }
 
-form{
+form {
   margin: 20px;
 }
 
-
 .form-group {
   margin-bottom: 1rem;
-  color: $ligth-p; 
+  color: $ligth-p;
 }
 
 .text-left {
@@ -140,16 +137,18 @@ form{
   color: $ligth;
 }
 
-p{
+p {
   font-size: small;
   margin-top: 10px;
   color: $ligth-p;
 }
 
-
-#username, #password, #confirmPassword{
+#username,
+#password,
+#confirmPassword {
   background-color: rgba($ligth-p, 0.1);
   border-radius: 10px;
+  color: $ligth-p;
   font-size: 15px;
   height: 50px;
 }
@@ -173,13 +172,13 @@ p{
 
   .card {
     height: 100%;
-    width: 100%; 
-    max-width: none; 
+    width: 100%;
+    max-width: none;
   }
 
   .card-body {
     flex-direction: column;
-    height: auto;
+    object-fit: cover;
   }
 
   #form-col {
@@ -187,6 +186,4 @@ p{
     padding: 20px;
   }
 }
-
-
 </style>
