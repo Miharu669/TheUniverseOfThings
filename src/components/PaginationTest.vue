@@ -6,8 +6,20 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <li class="page-item" v-for="page in totalPages" :key="page" :class="{ active: currentPage === page }">
+      <li class="page-item" :class="{ active: currentPage === 1 }">
+        <a class="page-link" href="#" @click.prevent="changePage(1)">1</a>
+      </li>
+      <li class="page-item" v-if="showLeftEllipsis">
+        <span class="page-link">...</span>
+      </li>
+      <li class="page-item" v-for="page in visiblePages" :key="page" :class="{ active: currentPage === page }">
         <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+      </li>
+      <li class="page-item" v-if="showRightEllipsis">
+        <span class="page-link">...</span>
+      </li>
+      <li class="page-item" :class="{ active: currentPage === totalPages }">
+        <a class="page-link" href="#" @click.prevent="changePage(totalPages)">{{ totalPages }}</a>
       </li>
       <li class="page-item" :class="{ disabled: currentPage === totalPages }">
         <a class="page-link" href="#" aria-label="Next" @click.prevent="changePage(currentPage + 1)">
@@ -19,6 +31,7 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
@@ -39,6 +52,38 @@ const changePage = (page) => {
     emits('changePage', page);
   }
 };
+
+const maxVisiblePages = 5; // Number of pages to display around the current page
+
+const visiblePages = computed(() => {
+  const pages = [];
+  const half = Math.floor(maxVisiblePages / 2);
+
+  let start = props.currentPage - half;
+  let end = props.currentPage + half;
+
+  if (start < 2) {
+    start = 2;
+    end = Math.min(2 + maxVisiblePages - 1, props.totalPages - 1);
+  } else if (end >= props.totalPages) {
+    start = Math.max(props.totalPages - maxVisiblePages + 1, 2);
+    end = props.totalPages - 1;
+  }
+
+  for (let i = start; i <= end; i++) {
+    pages.push(i);
+  }
+
+  return pages;
+});
+
+const showLeftEllipsis = computed(() => {
+  return visiblePages.value[0] > 2;
+});
+
+const showRightEllipsis = computed(() => {
+  return visiblePages.value[visiblePages.value.length - 1] < props.totalPages - 1;
+});
 </script>
 
 <style scoped>

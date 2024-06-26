@@ -17,10 +17,10 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(import
                <AnimeCard :anime="anime" />
             </li>
         </ul>
-        <!-- <PaginationTest :current-page="currentPage" @changePage="setPage" /> -->
+        <PaginationTest :current-page="currentPage" @changePage="setPage" />
       </div>
     </div>
-  </template>
+</template>
 
 <style scoped>
 h1 {
