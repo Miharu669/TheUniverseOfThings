@@ -3,12 +3,11 @@ import { useAuthStore } from "@/stores/auth";
 import { RouterLink } from "vue-router";
 import { ref } from "vue";
 
-// Acceder a la tienda de autenticación
 const store = useAuthStore();
 </script>
 
 <template>
-  <footer class="footer bg-dark text-light py-3 mt-4 fixed-bottom">
+  <footer class="footer bg-dark text-light py-3 mt-4">
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center">
         <div class="col-md-4">
