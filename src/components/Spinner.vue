@@ -12,7 +12,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .spinner-border{
-    color: $orage;
+    color: $orange;
  display: inline-block; 
  width: 2rem; 
  height: 2rem; 

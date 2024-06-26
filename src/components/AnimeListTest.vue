@@ -1,6 +1,7 @@
 <script setup>
 import { useAnimeStore } from '@/stores/anime';
 import { onMounted, computed } from 'vue';
+import Spinner from './Spinner.vue';
 
 const animeStore = useAnimeStore();
 
@@ -24,7 +25,7 @@ const limitedAnimes = computed(() => animeStore.animes.slice(randomNumber-6,rand
 <template>
   <div>
     <h1>Anime List</h1>
-    <div v-if="animeStore.isLoading">Loading...</div>
+    <Spinner v-if="animeStore.isLoading"></Spinner>
     <div class="anime-grid" v-else >
       <ul>
         <!-- <li v-for="anime in animeStore.animes" :key="anime.getTitle()"> -->
