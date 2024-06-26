@@ -20,7 +20,7 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(import
         <PaginationTest :current-page="currentPage" @changePage="setPage" />
       </div>
     </div>
-  </template>
+</template>
 
 <style scoped>
 h1 {
