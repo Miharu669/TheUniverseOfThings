@@ -21,7 +21,7 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(import
     </div>
 </template>
 
- <style scoped>
+ <style lang="scss" scoped>
  h1 {
   font-size: 2em;
   margin-bottom: 1em;
