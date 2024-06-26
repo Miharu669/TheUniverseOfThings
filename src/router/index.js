@@ -49,14 +49,7 @@ const router = createRouter({
       name: 'Filter',
       component: Filter
     },
-   /* {
-      path: '/Signinup',
-      name: 'signinup',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Signinup.vue')
-    } */
+   
 
       {
         path: '/HomeAnime',
