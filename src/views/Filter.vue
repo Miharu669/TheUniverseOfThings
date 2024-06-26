@@ -8,7 +8,6 @@ import Pagination from '@/components/Pagination.vue';
 
 <template>
     <div class="filter">
-      <h1>This is a Filter page</h1>
     </div>
 
     <AnimeListForCard />
