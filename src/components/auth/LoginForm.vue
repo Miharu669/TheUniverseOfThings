@@ -59,9 +59,15 @@ function login() {
 </template>
 
 <style lang="scss" scoped>
+
+.container{
+  height: 100vh;
+  margin-inline: auto;
+}
+
 .card {
   border-radius: 10px;
-  width: 600px;
+  width: auto;
   font-family: "Poppins", sans-serif;
   margin-top: 50px;
 }
