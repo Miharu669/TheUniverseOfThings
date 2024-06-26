@@ -1,21 +1,41 @@
-
 import { ref } from "vue";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref({
-    username: 'admin',
-    password: 'my-password',
-    isAuthenticated: false
-  });
+  const users = ref([
+    {
+      username: 'admin',
+      password: 'my-password',
+      isAuthenticated: false
+    }
+  ]);
 
-  function login() {
-    user.value.isAuthenticated = true;
+  const currentUser = ref(null);
+
+  function register(newUser) {
+    const existingUser = users.value.find(user => user.username === newUser.username);
+    if (existingUser) {
+      throw new Error('Username already taken');
+    }
+    users.value.push(newUser);
+  }
+
+  function login(username, password) {
+    const user = users.value.find(user => user.username === username && user.password === password);
+    if (user) {
+      user.isAuthenticated = true;
+      currentUser.value = user;
+    } else {
+      throw new Error('Invalid username or password');
+    }
   }
 
   function logout() {
-    user.value.isAuthenticated = false;
+    if (currentUser.value) {
+      currentUser.value.isAuthenticated = false;
+      currentUser.value = null;
+    }
   }
 
-  return { user, login, logout };
+  return { users, currentUser, register, login, logout, user: currentUser }; 
 });

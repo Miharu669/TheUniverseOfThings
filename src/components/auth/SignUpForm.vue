@@ -1,11 +1,11 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
 import { useAuthStore } from '@/stores/auth.js'
 
-const username = ref ('')
-const password = ref ('')
+const username = ref('')
+const password = ref('')
+const confirmPassword = ref('')
 
 const route = useRoute()
 const router = useRouter()
@@ -14,32 +14,35 @@ const store = useAuthStore()
 
 import totoroPic from '@/components/icons/totoro.jpg';
 
+function register() {
+  if (password.value !== confirmPassword.value) {
+    alert("Passwords do not match!")
+    return
+  }
 
-function login() {
+  const newUser = {
+    username: username.value,
+    password: password.value
+  }
 
-    if (username.value == store.user.username && password.value == store.user.password) {
-        store.user.isAuthenticated = true
-        const redirectPath = route.query.redirect || '/Login'
-        router.push(redirectPath)
-    }
-    
+  store.register(newUser)
+  router.push('/Login')
 }
-
 </script>
 
 
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card h-100">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
               <div class="col-md-6">
                 <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-              <div id = "form-col" class="col-md-6 d-flex flex-column justify-content-center">
-                <form @submit.prevent="login" class="text-left">
+              <div id="form-col" class="col-md-6 d-flex flex-column justify-content-center">
+                <form @submit.prevent="register" class="text-left">
                   <h4 class="card-title mb-4">Sign Up</h4>
                   <p>Create your account</p>
                   <div class="form-group mb-3">
@@ -51,10 +54,10 @@ function login() {
                     <input type="password" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
                   </div>
                   <div class="form-group mb-3">
-                    <label for="password">Confirm Password</label>
-                    <input type="password" class="form-control" id="password2" placeholder="Please confirm your password" v-model="password" required>
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Please confirm your password" v-model="confirmPassword" required>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-orange mt-3"><router-link to="/login" style="color:#E16428;"></router-link> Sign Up</button>
+                  <button type="submit" class="btn btn-sm btn-orange mt-3">Sign Up</button>
                 </form>
               </div>
             </div>
@@ -66,11 +69,18 @@ function login() {
 </template>
 
 <style lang="scss" scoped>
+
+.container{
+  height: 100vh;
+  margin-inline: auto;
+}
+
 .card {
   border-radius: 10px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   font-family: "Poppins", sans-serif;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .card-body {
@@ -89,11 +99,6 @@ function login() {
   border-radius: 40px;
   font-size: 15px;
 
-}
-
-.btn-orange:hover {
-  background-color: #ffddd0;
-  
 }
 
 .btn-sm {
@@ -134,12 +139,38 @@ p{
   color: $ligth-p;
 }
 
-#username, #password, #password2{
+#username, #password, #confirmPassword{
   background-color: rgba($ligth-p, 0.1);
   border-radius: 10px;
   color: $ligth-p; 
-  font-size: 12px;
+  font-size: 15px;
   height: 50px;
+}
+
+@media (max-width: 767px) {
+  .container {
+    height: 100vh;
+    margin-inline: auto;
+  }
+
+  .img-fluid {
+    display: none;
+  }
+
+  .card {
+    width: 100%; 
+    max-width: none; 
+  }
+
+  .card-body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #form-col {
+    border-radius: 10px;
+    padding: 20px;
+  }
 }
 
 

@@ -1,11 +1,10 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-
 import { useAuthStore } from '@/stores/auth.js'
 
-const username = ref ('')
-const password = ref ('')
+const username = ref('')
+const password = ref('')
 
 const route = useRoute()
 const router = useRouter()
@@ -14,31 +13,28 @@ const store = useAuthStore()
 
 import totoroPic from '@/components/icons/totoro.jpg';
 
-
 function login() {
-
-    if (username.value == store.user.username && password.value == store.user.password) {
-        store.user.isAuthenticated = true
-        const redirectPath = route.query.redirect || '/Favorites'
-        router.push(redirectPath)
-    }
-    
+  try {
+    store.login(username.value, password.value);
+    const redirectPath = route.query.redirect || '/Favorites';
+    router.push(redirectPath);
+  } catch (error) {
+    alert(error.message);
+  }
 }
-
 </script>
-
 
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <div class="card h-100">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
               <div class="col-md-6">
                 <img :src="totoroPic" alt="Image" class="img-fluid w-100" style="border-top-left-radius: 10px; border-bottom-left-radius: 10px;">
               </div>
-              <div id = "form-col" class="col-md-6 d-flex flex-column justify-content-center">
+              <div id="form-col" class="col-md-6 d-flex flex-column justify-content-center">
                 <form @submit.prevent="login" class="text-left">
                   <h4 class="card-title mb-4">Welcome!</h4>
                   <p>Login to your account</p>
@@ -63,11 +59,18 @@ function login() {
 </template>
 
 <style lang="scss" scoped>
+
+.container{
+  height: 100vh;
+  margin-inline: auto;
+}
+
 .card {
   border-radius: 10px;
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   font-family: "Poppins", sans-serif;
-  margin-top: 50px;
+  margin-top: 90px;
 }
 
 .card-body {
@@ -85,12 +88,6 @@ function login() {
   color: $light;
   border-radius: 40px;
   font-size: 15px;
-
-}
-
-.btn-orange:hover {
-  background-color: #ffddd0;
-  
 }
 
 .btn-sm {
@@ -98,18 +95,16 @@ function login() {
   width: 80px;
 }
 
-#form-col{
+#form-col {
   background-color: $main; 
   color: $light; 
   border-top-right-radius: 10px; 
   border-bottom-right-radius: 10px;
-
 }
 
-form{
+form {
   margin: 20px;
 }
-
 
 .form-group {
   margin-bottom: 1rem;
@@ -123,34 +118,46 @@ form{
 .card-title {
   margin: 0;
   color: $ligth;
+
 }
 
-p{
+p {
   font-size: small;
   margin-top: 10px;
   color: $ligth-p;
 }
 
-#username, #password{
+#username, #password {
   background-color: rgba($ligth-p, 0.1);
   border-radius: 10px;
   color: $ligth-p; 
-  font-size: 12px;
+  font-size: 15px;
   height: 50px;
 }
 
+@media (max-width: 767px) {
+  .container {
+    height: 100vh;
+    margin-inline: auto;
+  }
 
+  .img-fluid {
+    display: none;
+  }
+
+  .card {
+    width: 100%; 
+    max-width: none; 
+  }
+
+  .card-body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  #form-col {
+    border-radius: 10px;
+    padding: 20px;
+  }
+}
 </style>
-
-<!-- <template>
-<div>
-<form @submit.prevent="login">
-<label for="username">username</label>
-<input type="text" name="username" id="username" v-model="username">
-
-<label for="password">password</label>
-<input type="password" name="password" id="password" v-model="password">
-<button type="submit">Login</button>
-</form>
-</div>
-</template> -->
