@@ -17,7 +17,7 @@ import Pagination from '@/components/Pagination.vue';
 </template>
 
   
-<style>
+<!-- <style>
   @media (min-width: 1024px) {
     .filter {
       min-height: 100vh;
@@ -25,5 +25,5 @@ import Pagination from '@/components/Pagination.vue';
       align-items: center;
     }
   }
-</style>
+</style> -->
   
