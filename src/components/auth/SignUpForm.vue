@@ -71,7 +71,7 @@ function register() {
 <style lang="scss" scoped>
 
 .container {
-  height: 100vh;
+  min-height: 100vh;
   margin-inline: auto;
 }
 
