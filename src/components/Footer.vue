@@ -7,7 +7,7 @@ const store = useAuthStore();
 </script>
 
 <template>
-  <footer class="footer bg-dark text-light py-3 mt-4">
+  <footer class="footer bg-dark text-light py-3">
     <div class="container-fluid">
       <div class="row justify-content-between align-items-center">
         <div class="col-md-4">

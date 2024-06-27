@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.js";
 
@@ -22,12 +22,19 @@ function login() {
     alert(error.message);
   }
 }
+
+onMounted(() => {
+  if (store.currentUser?.isAuthenticated) {
+    const redirectPath = route.query.redirect || "/Favorites";
+    router.push(redirectPath);
+  }
+});
 </script>
 
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
+      <div class="col-md-6" style="height: fit-content;">
         <div class="card h-100 no-border">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
@@ -61,7 +68,7 @@ function login() {
 
 <style lang="scss" scoped>
 .container {
-  height: 100vh;
+  min-height: calc(100vh - 56px);
   margin-inline: auto;
 }
 
