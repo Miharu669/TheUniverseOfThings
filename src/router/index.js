@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
 import Add from '../views/Add.vue'
 import Login from '../views/guards/LoginView.vue'
+import SignUp from '@/components/auth/SignUpForm.vue'
 import Favorites from '@/views/Favorites.vue'
 import Filter from '@/views/Filter.vue'
 import { useAuthStore } from '@/stores/auth'
@@ -33,6 +34,11 @@ const router = createRouter({
       component: Login
     },
     {
+      path: '/SignUp',
+      name: 'signup',
+      component: SignUp
+    },
+    {
       path: '/Favorites',
       name: 'favorites',
       component: Favorites,
@@ -43,14 +49,7 @@ const router = createRouter({
       name: 'Filter',
       component: Filter
     },
-   /* {
-      path: '/Signinup',
-      name: 'signinup',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Signinup.vue')
-    } */
+   
 
       {
         path: '/HomeAnime',

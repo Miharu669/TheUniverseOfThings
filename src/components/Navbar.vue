@@ -1,36 +1,67 @@
 <script setup>
-import { useAuthStore } from "@/stores/auth";
-import { RouterLink } from "vue-router";
+import { useAuthStore } from "@/stores/auth.js";
+import { RouterLink, useRouter } from "vue-router";
 
 const store = useAuthStore();
+const router = useRouter();
+
+function handleLogout() {
+  store.logout();
+  router.push("/");
+}
 </script>
 
 <template>
-  <nav>
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="navbar fixed-top">
-      <b-navbar-brand>
-        <RouterLink to="/">
-          <img src="@/components/icons/logo-big.svg" alt="logo" />
-        </RouterLink>
-      </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item v-if="store.user.isAuthenticated">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container-fluid">
+      <RouterLink to="/" class="navbar-brand me-5">
+        <img src="@/components/icons/logo-big.svg" alt="logo" />
+      </RouterLink>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li
+            class="nav-item"
+            v-if="store.currentUser && store.currentUser.isAuthenticated"
+          >
             <RouterLink to="/Filter" class="nav-link">Filter</RouterLink>
-          </b-nav-item>
-          <b-nav-item v-if="store.user.isAuthenticated">
+          </li>
+          <li
+            class="nav-item"
+            v-if="store.currentUser && store.currentUser.isAuthenticated"
+          >
             <RouterLink to="/Favorites" class="nav-link">Favorites</RouterLink>
-          </b-nav-item>
-          <b-nav-item v-if="store.user.isAuthenticated">
+          </li>
+          <li
+            class="nav-item"
+            v-if="store.currentUser && store.currentUser.isAuthenticated"
+          >
             <RouterLink to="/Add" class="nav-link">Add</RouterLink>
-          </b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-      <div v-if="!store.user.isAuthenticated" class="btnloginav">
-        <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
+          </li>
+          <li class="nav-item" v-if="!store.currentUser">
+            <b-nav-item class="btnloginav">
+              <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
+            </b-nav-item>
+          </li>
+          <li
+            class="nav-item"
+            v-if="store.currentUser && store.currentUser.isAuthenticated"
+          >
+            <a class="nav-link" @click="handleLogout">Logout</a>
+          </li>
+        </ul>
       </div>
-    </b-navbar>
+    </div>
   </nav>
 </template>
 
@@ -39,21 +70,29 @@ const store = useAuthStore();
   background-color: $darker !important;
 }
 
-.navbar-nav .nav-link {
-  color: $light;
+.nav-link {
+  color: $orange;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.nav-link:hover {
+  text-decoration: none !important;
+  color: $light !important;
 }
 
 .btnloginav {
   background-color: $orange !important;
   border-radius: 30px;
   border-color: $orange !important;
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  color: $light;
 
   .nav-link {
     color: $light !important;
     border-radius: 30px !important;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     border-color: $orange !important;

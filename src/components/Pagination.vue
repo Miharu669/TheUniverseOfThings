@@ -28,6 +28,8 @@ export default {
 .pagination {
   display: flex;
   justify-content: center;
+  list-style-type: none;
+   padding: 0;
 }
 
 .page-item {
