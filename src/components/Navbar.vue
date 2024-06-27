@@ -72,13 +72,13 @@ function handleLogout() {
 
 .nav-link {
   color: $orange;
-  font-family: "Poppins", sans-serif;
+  font-family: $Poppins;
   text-align: center;
 }
 
 .nav-link:hover {
   text-decoration: none !important;
-  color: $light !important;
+  color: $ligth-p !important;
 }
 
 .btnloginav {

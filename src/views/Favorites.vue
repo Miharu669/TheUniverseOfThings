@@ -1,6 +1,5 @@
 <script setup>
-import Pagination from '@/components/Pagination.vue';
-
+import Pagination from "@/components/Pagination.vue";
 </script>
 <template>
   <div>
@@ -8,8 +7,8 @@ import Pagination from '@/components/Pagination.vue';
     <Pagination />
   </div>
 </template>
-
-
-
-<style scoped>
+<style lang="scss">
+#app {
+  height: 100vh;
+}
 </style>
