@@ -1,6 +1,7 @@
 <script setup>
 
-import AnimeListForCard from '@/components/AnimeListForCard.vue'
+import AnimeListForCard from '@/components/AnimeListForCard.vue';
+import FilterAnimes from '@/components/FilterAnimes.vue';
 
 import Pagination from '@/components/Pagination.vue';
 
@@ -8,15 +9,15 @@ import Pagination from '@/components/Pagination.vue';
 
 <template>
     <div class="filter">
-      <h1>This is a Filter page</h1>
     </div>
 
+    <!-- <FilterAnimes /> -->
     <AnimeListForCard />
     <Pagination/>
 </template>
 
   
-<style>
+<!-- <style>
   @media (min-width: 1024px) {
     .filter {
       min-height: 100vh;
@@ -24,5 +25,5 @@ import Pagination from '@/components/Pagination.vue';
       align-items: center;
     }
   }
-</style>
+</style> -->
   

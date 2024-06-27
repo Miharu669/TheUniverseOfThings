@@ -34,8 +34,8 @@ function register() {
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-8">
-        <div class="card h-100">
+      <div class="col-md-6">
+        <div class="card h-100 no-border">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
               <div class="col-md-6">
@@ -47,15 +47,15 @@ function register() {
                   <p>Create your account</p>
                   <div class="form-group mb-3">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Please enter your username" v-model="username" required>
+                    <input type="text" class="form-control no-border" id="username" placeholder="Please enter your username" v-model="username" required>
                   </div>
                   <div class="form-group mb-3">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Please enter your password" v-model="password" required>
+                    <input type="password" class="form-control no-border" id="password" placeholder="Please enter your password" v-model="password" required>
                   </div>
                   <div class="form-group mb-3">
                     <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" class="form-control" id="confirmPassword" placeholder="Please confirm your password" v-model="confirmPassword" required>
+                    <input type="password" class="form-control no-border" id="confirmPassword" placeholder="Please confirm your password" v-model="confirmPassword" required>
                   </div>
                   <button type="submit" class="btn btn-sm btn-orange mt-3">Sign Up</button>
                 </form>
@@ -70,62 +70,62 @@ function register() {
 
 <style lang="scss" scoped>
 
-.container{
+.container {
   height: 100vh;
   margin-inline: auto;
 }
 
 .card {
   border-radius: 10px;
-  width: auto;
+  width: 100%;
+  max-width: 600px;
   font-family: "Poppins", sans-serif;
-  margin-top: 50px;
+  margin-top: 90px;
+  min-height: 500px; 
 }
 
 .card-body {
-  padding: 0; 
+  padding: 0;
+  background-color: $dark !important;
+}
+
+.no-border {
+  border: none;
+  box-shadow: none;
 }
 
 .img-fluid {
   object-fit: cover;
-  height: 100%; 
+  height: 100%;
   width: 100%;
 }
 
 .btn-orange {
-  background-color:$orange !important;
+  background-color: $orange !important;
   color: $light;
   border-radius: 40px;
   font-size: 15px;
-
-}
-
-.btn-orange:hover {
-  background-color: #ffddd0;
-  
 }
 
 .btn-sm {
-  height: 40px; 
+  height: 40px;
   width: 80px;
 }
 
-#form-col{
-  background-color: $main; 
-  color: $light; 
-  border-top-right-radius: 10px; 
+#form-col {
+  background-color: $main;
+  color: $light;
+  border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
-
 }
 
-form{
+form {
   margin: 20px;
 }
 
-
 .form-group {
   margin-bottom: 1rem;
-  color: $ligth-p; 
+  color: $ligth-p;
 }
 
 .text-left {
@@ -137,19 +137,53 @@ form{
   color: $ligth;
 }
 
-p{
+p {
   font-size: small;
   margin-top: 10px;
   color: $ligth-p;
 }
 
-#username, #password, #confirmPassword{
+#username,
+#password,
+#confirmPassword {
   background-color: rgba($ligth-p, 0.1);
   border-radius: 10px;
-  color: $ligth-p; 
+  color: $ligth-p;
   font-size: 15px;
   height: 50px;
 }
 
+::placeholder {
+  color: rgba($ligth-p, 0.5) !important;
+}
 
+@media (max-width: 767px) {
+  .container {
+    height: 100vh;
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-fluid {
+    display: none;
+  }
+
+  .card {
+    height: 100%;
+    width: 100%;
+    max-width: none;
+  }
+
+  .card-body {
+    flex-direction: column;
+    object-fit: cover;
+  }
+
+  #form-col {
+    border-radius: 10px;
+    padding: 20px;
+  }
+}
 </style>

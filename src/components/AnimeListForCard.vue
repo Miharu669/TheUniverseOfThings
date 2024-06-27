@@ -1,7 +1,9 @@
 <script setup>
 import { useFetchAnimes } from '@/hooks/useFetchAnimes';
 import AnimeCard from './AnimeCard.vue';
-const { animes, isLoading, error } = useFetchAnimes(import.meta.env.VITE_API_ENDPOINT_ANIME);
+import PaginationTest from './PaginationTest.vue';
+const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(import.meta.env.VITE_API_ENDPOINT_ANIME);
+
 </script>
 
 <template>
@@ -15,9 +17,10 @@ const { animes, isLoading, error } = useFetchAnimes(import.meta.env.VITE_API_END
                <AnimeCard :anime="anime" />
             </li>
         </ul>
+        <PaginationTest :current-page="currentPage" @changePage="setPage" />
       </div>
     </div>
-  </template>
+</template>
 
 <style scoped>
 h1 {

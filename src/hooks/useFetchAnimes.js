@@ -6,6 +6,8 @@ export function useFetchAnimes(apiEndpoint) {
     const animes = ref([]);
     const isLoading = ref(true);
     const error = ref(null);
+    const currentPage = ref(1);
+    const itemsPerPage = 6;
 
     const repo = new AnimeRepository(apiEndpoint);
     const service = new AnimeService(repo);
@@ -13,7 +15,7 @@ export function useFetchAnimes(apiEndpoint) {
     const fetchAnimes = async () => {
         try {
             isLoading.value = true;
-            const data = await service.getAllAnimes();
+            const data = await service.getAllAnimes(currentPage.value, itemsPerPage);
             animes.value = data;
         } catch (err) {
             error.value = err;
@@ -22,9 +24,14 @@ export function useFetchAnimes(apiEndpoint) {
         }
     };
 
+    const setPage = (page) => {
+        currentPage.value = page;
+        fetchAnimes();
+    }
+
     onMounted(() => {
         fetchAnimes();
     });
 
-    return { animes, isLoading, error };
+    return { animes, isLoading, error, currentPage, setPage };
 }

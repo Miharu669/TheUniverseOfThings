@@ -8,8 +8,8 @@ export default class AnimeService {
         this.#repo = repository
     }
 
-    async getAllAnimes() {
-        const response = await this.#repo.getAll()
+    async getAllAnimes(page = 1, itemsPerPage = 6) {
+        const response = await this.#repo.getAll(page, itemsPerPage)
         const animes = response.data.map(item => new Anime(
             item.title,
             item.images.jpg.large_image_url,
