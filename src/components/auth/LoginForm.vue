@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted} from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth.js";
 
@@ -22,6 +22,13 @@ function login() {
     alert(error.message);
   }
 }
+
+onMounted(() => {
+  if (store.currentUser?.isAuthenticated) {
+    const redirectPath = route.query.redirect || "/Favorites";
+    router.push(redirectPath);
+  }
+});
 </script>
 
 <template>

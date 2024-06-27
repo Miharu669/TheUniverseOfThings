@@ -2,7 +2,7 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 
 export const useAuthStore = defineStore('auth', () => {
-  const users = ref([
+  const users = ref(JSON.parse(localStorage.getItem('users')) ||[
     {
       username: 'admin',
       password: 'my-password',
@@ -10,7 +10,13 @@ export const useAuthStore = defineStore('auth', () => {
     }
   ]);
 
-  const currentUser = ref(null);
+  //const currentUser = ref(null);
+  const currentUser = ref(JSON.parse(localStorage.getItem('currentUser')));
+
+  function saveToLocalStorage() {
+    localStorage.setItem('users', JSON.stringify(users.value));
+    localStorage.setItem('currentUser', JSON.stringify(currentUser.value));
+  }
 
   function register(newUser) {
     const existingUser = users.value.find(user => user.username === newUser.username);
@@ -18,6 +24,7 @@ export const useAuthStore = defineStore('auth', () => {
       throw new Error('Username already taken');
     }
     users.value.push(newUser);
+    saveToLocalStorage();
   }
 
   function login(username, password) {
@@ -25,6 +32,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (user) {
       user.isAuthenticated = true;
       currentUser.value = user;
+      saveToLocalStorage();
     } else {
       throw new Error('Invalid username or password');
     }
@@ -34,6 +42,7 @@ export const useAuthStore = defineStore('auth', () => {
     if (currentUser.value) {
       currentUser.value.isAuthenticated = false;
       currentUser.value = null;
+      saveToLocalStorage();
     }
   }
 
