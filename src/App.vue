@@ -24,6 +24,7 @@ import { useAuthStore } from "@/stores/auth.js";
 <style lang="scss" >
 #app{
   background-color: $dark;
+  height: 100vh;
 }
 main {
   width: 100%!important;
