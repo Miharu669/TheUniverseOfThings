@@ -34,7 +34,7 @@ function register() {
 <template>
   <div class="container">
     <div class="row justify-content-center mt-5">
-      <div class="col-md-6">
+      <div class="col-md-6" style="height: fit-content;">
         <div class="card h-100 no-border">
           <div class="card-body d-flex align-items-stretch">
             <div class="row gx-0">
@@ -71,7 +71,7 @@ function register() {
 <style lang="scss" scoped>
 
 .container {
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   margin-inline: auto;
 }
 
