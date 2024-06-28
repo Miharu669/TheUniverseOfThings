@@ -1,6 +1,4 @@
-<script setup>
-import Pagination from "@/components/Pagination.vue";
-</script>
+<script setup></script>
 <template>
   <div>
     <h1>My Favorites</h1>
