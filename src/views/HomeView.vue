@@ -2,8 +2,8 @@
 import { useAnimeStore } from '@/stores/anime';
 import { ref } from 'vue';
 import AnimeListTest from '@/components/AnimeListTest.vue'
-import Pagination from '@/components/Pagination.vue';
-import Spinner from '@/components/Spinner.vue';
+import PaginationTest from '@/components/PaginationTest.vue';
+
 
 
 
@@ -14,7 +14,6 @@ import Spinner from '@/components/Spinner.vue';
     <h1>hello</h1>
     
     <AnimeListTest />
-    <Pagination/>
   </main>
   
 </template>
