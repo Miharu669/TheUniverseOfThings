@@ -1,33 +1,35 @@
 <template>
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item" :class="{ disabled: currentPage === 1 }">
-        <a class="page-link" href="#" aria-label="Previous" @click.prevent="changePage(currentPage - 1)">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="page-item" :class="{ active: currentPage === 1 }">
-        <a class="page-link" href="#" @click.prevent="changePage(1)">1</a>
-      </li>
-      <li class="page-item" v-if="showLeftEllipsis">
-        <span class="page-link">...</span>
-      </li>
-      <li class="page-item" v-for="page in visiblePages" :key="page" :class="{ active: currentPage === page }">
-        <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
-      </li>
-      <li class="page-item" v-if="showRightEllipsis">
-        <span class="page-link">...</span>
-      </li>
-      <li class="page-item" :class="{ active: currentPage === totalPages }">
-        <a class="page-link" href="#" @click.prevent="changePage(totalPages)">{{ totalPages }}</a>
-      </li>
-      <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-        <a class="page-link" href="#" aria-label="Next" @click.prevent="changePage(currentPage + 1)">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  <div class="pagination-container">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item" :class="{ disabled: currentPage === 1 }">
+          <a class="page-link" href="#" aria-label="Previous" @click.prevent="changePage(currentPage - 1)">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item" :class="{ active: currentPage === 1 }">
+          <a class="page-link" href="#" @click.prevent="changePage(1)">1</a>
+        </li>
+        <li class="page-item" v-if="showLeftEllipsis">
+          <span class="page-link">...</span>
+        </li>
+        <li class="page-item" v-for="page in visiblePages" :key="page" :class="{ active: currentPage === page }">
+          <a class="page-link" href="#" @click.prevent="changePage(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" v-if="showRightEllipsis">
+          <span class="page-link">...</span>
+        </li>
+        <li class="page-item" :class="{ active: currentPage === totalPages }">
+          <a class="page-link" href="#" @click.prevent="changePage(totalPages)">{{ totalPages }}</a>
+        </li>
+        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+          <a class="page-link" href="#" aria-label="Next" @click.prevent="changePage(currentPage + 1)">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script setup>
@@ -41,7 +43,7 @@ const props = defineProps({
   },
   totalPages: {
     type: Number,
-    default: 1076, 
+    default: 1076,
   },
 });
 
@@ -53,7 +55,7 @@ const changePage = (page) => {
   }
 };
 
-const maxVisiblePages = 5; // Number of pages to display around the current page
+const maxVisiblePages = 2;
 
 const visiblePages = computed(() => {
   const pages = [];
@@ -86,10 +88,21 @@ const showRightEllipsis = computed(() => {
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+nav{
+  font-family: "poppins", sans-serif;
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Asegúrate de que el contenedor ocupe el ancho completo */
+  grid-column: span 2;
+}
+
 .pagination {
   display: flex;
   justify-content: center;
+  border-color:none !important
 }
 
 .page-item {
@@ -97,23 +110,30 @@ const showRightEllipsis = computed(() => {
 }
 
 .page-link {
-  color: #F6E9E9;
+  color: $ligth !important;
   text-decoration: none;
-  background-color: #363333; /* Color de fondo para los números de paginación */
-  padding: 10px; /* Agregar padding para hacer el fondo más visible */
-  border-radius: 5px; /* Bordes redondeados para una mejor apariencia */
+  background-color: $main !important;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: none !important;
+
 }
 
 .page-link:hover {
-  background-color: #E16428;
+  background-color: $orange !important;
+  box-shadow: none !important;
+}
+.page-link:active{
+  border-color:none;
 }
 
 .page-link.active {
- color: #E16428; /* Color de fondo cuando el número está seleccionado */
+  color: $orange;
 }
 
 .page-item:first-child .page-link,
 .page-item:last-child .page-link {
-  background-color: #D9D9D9; /* Color para los enlaces "Previous" y "Next" */
+  background-color: $ligth-p !important;
+  color: $dark !important;
 }
 </style>
