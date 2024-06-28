@@ -1,9 +1,7 @@
 <script setup>
 
 import AnimeListForCard from '@/components/AnimeListForCard.vue';
-import FilterAnimes from '@/components/FilterAnimes.vue';
-
-import Pagination from '@/components/Pagination.vue';
+// import FilterAnimes from '@/components/FilterAnimes.vue';
 
 </script>
 
@@ -13,7 +11,6 @@ import Pagination from '@/components/Pagination.vue';
 
     <!-- <FilterAnimes /> -->
     <AnimeListForCard />
-    <Pagination/>
 </template>
 
   
