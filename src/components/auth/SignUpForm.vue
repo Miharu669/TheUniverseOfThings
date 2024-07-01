@@ -70,6 +70,10 @@ function register() {
 
 <style lang="scss" scoped>
 
+html{
+  max-height: 100vh;
+}
+
 .container {
   min-height: calc(100vh - 56px);
   margin-inline: auto;
@@ -80,8 +84,11 @@ function register() {
   width: 100%;
   max-width: 600px;
   font-family: "Poppins", sans-serif;
-  margin-top: 90px;
-  min-height: 500px; 
+  margin-top: 30%;
+  margin-bottom: 30%;
+  vertical-align: middle;
+  // margin-top: 90px;
+  // min-height: 500px; 
 }
 
 .card-body {
