@@ -6,11 +6,10 @@ import { useAuthStore } from "@/stores/auth.js";
 </script>
 
 <template>
-  <head> </head>
   <Navbar></Navbar>
-
-  <RouterView />
-
+  <main>
+    <RouterView />
+  </main>
   <Footer></Footer>
 </template>
 
@@ -20,7 +19,9 @@ html {
 }
 main {
   width: 100% !important;
+  max-width: 1220px;
   margin: 0 auto !important;
   background-color: $dark;
+  min-height: calc(100vh - 113px);
 }
 </style>

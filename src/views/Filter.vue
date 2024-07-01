@@ -24,8 +24,10 @@ const filteredAnimes = computed(() => {
 
 <template>
   <div class="container">
-    <h1>Filter Anime by Genre</h1>
-    <Filter @filterGenre="filterGenre" />
+    <div class="hero">
+      <h1>Filter Anime by Genre</h1>
+      <Filter @filterGenre="filterGenre" />
+    </div>
     <AnimeListTest
       :animes="filteredAnimes"
       :isLoading="isLoading"
@@ -38,8 +40,14 @@ const filteredAnimes = computed(() => {
 
 <style lang="scss" scoped>
 
+.hero {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
 .container {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 h1 {

@@ -13,7 +13,7 @@ function handleLogout() {
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <RouterLink to="/" class="navbar-brand me-5">
         <img src="@/components/icons/logo-big.svg" alt="logo" />
@@ -88,7 +88,7 @@ function handleLogout() {
   align-items: center;
   color: $light;
   padding: 5px 15px;
-  font-size: 12px;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
 
   &:hover {
