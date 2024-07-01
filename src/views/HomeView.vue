@@ -11,9 +11,7 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
 </script>
 
 <template>
-  <main>
-    <div>
-    <h1>Home</h1>
+    <div class="container">
     <AnimeListTest
       :animes="animes"
       :isLoading="isLoading"
@@ -22,9 +20,13 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
       :setPage="setPage"
     />
   </div>
-  </main>
 </template>
 <style lang="scss">
+
+.container {
+  margin-top: 80px;
+}
+
 #app {
   background-color: $dark;
 }

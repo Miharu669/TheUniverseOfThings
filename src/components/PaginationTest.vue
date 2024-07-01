@@ -98,6 +98,7 @@ nav{
   justify-content: center;
   width: 100%; /* Asegúrate de que el contenedor ocupe el ancho completo */
   grid-column: span 2;
+  margin-block: 50px 80px;
 }
 
 .pagination {

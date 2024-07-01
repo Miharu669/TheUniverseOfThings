@@ -32,6 +32,7 @@ const props = defineProps({
 </script>
 
 <template>
+  <section>
     <h1>Anime List</h1>
   <div class="container">
     <Spinner v-if="isLoading">Loading...</Spinner>
@@ -45,15 +46,15 @@ const props = defineProps({
       <PaginationTest :current-page="currentPage" @changePage="setPage" />
     </div>
   </div>
+</section>
 </template>
 
 <style lang="scss" scoped>
 h1 {
   font-size: 1.5em;
-  margin-bottom: 1em;
+  margin-bottom: 30px;
   color: $ligth !important;
   background-color: $dark;
-  padding: 1em;
   font-family: $Poppins !important;
 }
 h3 {
@@ -76,7 +77,6 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
   text-align: center;
 } 
 
@@ -84,9 +84,9 @@ ul {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
-  gap: 1em;
+  gap: 30px;
   background-color: $dark;
-  padding: 1em;
-  width: 1200px;
+  // padding: 1em;
+  width: 1220px;
 }
 </style>
