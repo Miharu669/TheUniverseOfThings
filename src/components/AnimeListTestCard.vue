@@ -18,9 +18,9 @@ function heartButtonClick() {
 function heartSwap() {
   console.log("Current heart icon:", heartIcon.value);
   if (heartIcon.value.includes("empty-heart.svg")) {
-    heartIcon.value = "./public/full-heart.svg";
+    heartIcon.value = "./full-heart.svg";
   } else {
-    heartIcon.value = "./public/empty-heart.svg";
+    heartIcon.value = "./empty-heart.svg";
   }
   console.log("New heart icon:", heartIcon.value);
 }
