@@ -19,4 +19,16 @@ export default class AnimeService {
         ))
         return animes
     }
+
+    // async getAnimesByGenre(genre, page = 1, itemsPerPage = 6) {
+    //     const response = await this.#repo.getAnimesByGenre(genre, page, itemsPerPage);
+    //     const animes = response.data.map(item => new Anime(
+    //         item.title,
+    //         item.images.jpg.large_image_url,
+    //         item.year,
+    //         item.type,
+    //         item.genres
+    //     ))
+    //     return animes;
+    // }
 }
