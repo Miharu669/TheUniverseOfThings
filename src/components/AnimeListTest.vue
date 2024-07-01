@@ -9,7 +9,7 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <h1>Anime List</h1>
     <Spinner v-if="isLoading">Loading...</Spinner>
     <div v-else-if="error">Error: {{ error.message }}</div>
@@ -47,6 +47,15 @@ ul {
   margin: 0;
   display: contents;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+} 
 
 .anime-grid {
   display: grid;
