@@ -1,12 +1,11 @@
 <script setup>
 import { ref } from "vue";
-import { defineProps } from "vue";
 
 const props = defineProps({
   anime: Object,
 });
 
-const heartIcon = ref("./public/empty-heart.svg");
+const heartIcon = ref("./empty-heart.svg");
 
 function heartButtonClick() {
   if (props.anime && typeof props.anime.getTitle === "function") {

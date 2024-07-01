@@ -1,16 +1,39 @@
 <script setup>
-import { useFetchAnimes } from "@/hooks/useFetchAnimes";
+// import { useFetchAnimes } from "@/hooks/useFetchAnimes";
 import AnimeCard from "./AnimeListTestCard.vue";
 import PaginationTest from "./PaginationTest.vue";
 import Spinner from "./Spinner.vue";
-const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
-  import.meta.env.VITE_API_ENDPOINT_ANIME
-);
+// const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
+//   import.meta.env.VITE_API_ENDPOINT_ANIME
+// );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const props = defineProps({
+  animes: Array,
+  isLoading: Boolean,
+  error: Object,
+  currentPage: Number,
+  setPage: Function,
+});
 </script>
 
 <template>
-  <div class="container">
     <h1>Anime List</h1>
+  <div class="container">
     <Spinner v-if="isLoading">Loading...</Spinner>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div class="anime-grid" v-else>
