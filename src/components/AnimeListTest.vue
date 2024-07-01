@@ -9,8 +9,8 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
 </script>
 
 <template>
-  <div class="container">
     <h1>Anime List</h1>
+  <div class="container">
     <Spinner v-if="isLoading">Loading...</Spinner>
     <div v-else-if="error">Error: {{ error.message }}</div>
     <div class="anime-grid" v-else>
