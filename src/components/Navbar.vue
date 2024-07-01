@@ -69,6 +69,10 @@ function handleLogout() {
   background-color: $darker !important;
 }
 
+.container-fluid {
+  max-width: 1220px;
+}
+
 .nav-link {
   color: $orange;
   font-family: $Poppins;

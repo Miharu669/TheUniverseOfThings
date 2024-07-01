@@ -12,13 +12,14 @@ const { animes, isLoading, error, currentPage, setPage } = useFetchAnimes(
 
 <template>
     <div class="container">
-    <AnimeListTest
-      :animes="animes"
-      :isLoading="isLoading"
-      :error="error"
-      :currentPage="currentPage"
-      :setPage="setPage"
-    />
+      <h1>Anime List</h1>
+      <AnimeListTest
+        :animes="animes"
+        :isLoading="isLoading"
+        :error="error"
+        :currentPage="currentPage"
+        :setPage="setPage"
+      />
   </div>
 </template>
 <style lang="scss">

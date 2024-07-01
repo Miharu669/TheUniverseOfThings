@@ -24,4 +24,11 @@ main {
   background-color: $dark;
   min-height: calc(100vh - 113px);
 }
+
+h1 {
+  font-size: 32px;
+  color: $light !important;
+  font-family: $Poppins !important;
+  font-weight: 500;
+}
 </style>

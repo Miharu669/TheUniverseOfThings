@@ -23,10 +23,13 @@ const store = useAuthStore();
 .footer {
   background-color: $darker !important;
   font-family: "Poppins", sans-serif;
-  
 
-a{
-  color: $ligth-p !important;
+    a {
+      color: $ligth-p !important;
+    }
 }
+
+.container-fluid {
+  max-width: 1220px;
 }
 </style>
