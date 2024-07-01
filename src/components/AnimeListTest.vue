@@ -7,6 +7,21 @@ import Spinner from "./Spinner.vue";
 //   import.meta.env.VITE_API_ENDPOINT_ANIME
 // );
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const props = defineProps({
   animes: Array,
   isLoading: Boolean,

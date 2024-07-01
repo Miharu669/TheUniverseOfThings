@@ -23,7 +23,7 @@ const filteredAnimes = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <h1>Filter Anime by Genre</h1>
     <Filter @filterGenre="filterGenre" />
     <AnimeListTest
@@ -37,12 +37,14 @@ const filteredAnimes = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+
+.container {
+  margin-top: 100px;
+}
+
 h1 {
-  font-size: 2em;
-  margin-bottom: 1em;
+  font-size: 32px;
   color: $light !important;
-  background-color: $dark;
-  padding: 1em;
   font-family: $Poppins !important;
 }
 </style>

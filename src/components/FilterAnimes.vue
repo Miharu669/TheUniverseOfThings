@@ -5,14 +5,10 @@
   const genres = [
     "Action",
     "Adventure",
-    "Comedy",
     "Drama",
     "Fantasy",
-    "Horror",
-    "Mystery",
     "Romance",
     "Sci-Fi",
-    "Slice of Life",
   ];
   const selectedGenre = ref("");
   
