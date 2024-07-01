@@ -1,9 +1,29 @@
 <script setup>
+import { ref } from "vue";
 import { defineProps } from "vue";
 
 const props = defineProps({
   anime: Object,
 });
+
+const heartIcon = ref("./public/empty-heart.svg");
+
+function heartButtonClick() {
+  if (props.anime && typeof props.anime.getTitle === "function") {
+    console.log("Setting favorite:", props.anime.getTitle());
+    localStorage.setItem("favoriteCard", props.anime.getTitle());
+  }
+}
+
+function heartSwap() {
+  console.log("Current heart icon:", heartIcon.value);
+  if (heartIcon.value.includes("empty-heart.svg")) {
+    heartIcon.value = "./public/full-heart.svg";
+  } else {
+    heartIcon.value = "./public/empty-heart.svg";
+  }
+  console.log("New heart icon:", heartIcon.value);
+}
 </script>
 
 <template>
@@ -17,7 +37,15 @@ const props = defineProps({
       <p v-else>Genres: N/A</p>
     </div>
 
-    <img src="./icons/empty-heart.svg" class="pos_emptyheart" />
+    <button @click="heartButtonClick" class="heart-swap">
+      <img
+        :src="heartIcon"
+        @click.stop="heartSwap"
+        id="heart-swap"
+        class="heart-icon"
+        alt="Heart Icon"
+      />
+    </button>
   </div>
 </template>
 
@@ -48,12 +76,20 @@ const props = defineProps({
   color: $ligth-p !important;
 }
 
-.pos_emptyheart {
-  color: $orange;
+.heart-swap {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  right: 15px;
   font-size: 1.5em;
   cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.heart-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 </style>
