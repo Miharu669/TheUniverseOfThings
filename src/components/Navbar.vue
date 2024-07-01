@@ -2,6 +2,7 @@
 import { useAuthStore } from "@/stores/auth.js";
 import { RouterLink, useRouter } from "vue-router";
 
+
 const store = useAuthStore();
 const router = useRouter();
 
@@ -49,9 +50,7 @@ function handleLogout() {
             <RouterLink to="/Add" class="nav-link">Add</RouterLink>
           </li>
           <li class="nav-item" v-if="!store.currentUser">
-            <b-nav-item class="btnloginav">
-              <RouterLink to="/Login" class="nav-link btn">Sign in</RouterLink>
-            </b-nav-item>
+            <RouterLink to="/Login" class="nav-link btnloginav">Sign in</RouterLink>
           </li>
           <li
             class="nav-item"
@@ -88,23 +87,14 @@ function handleLogout() {
   display: inline-flex;
   align-items: center;
   color: $light;
+  padding: 5px 15px;
+  font-size: 12px;
+  font-family: "Poppins", sans-serif;
 
-  .nav-link {
+  &:hover {
     color: $light !important;
-    border-radius: 30px !important;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    background-color: $orange !important;
     border-color: $orange !important;
-    padding: 5px 15px;
-    font-size: 12px;
-    font-family: "Poppins", sans-serif;
-
-    &:hover {
-      color: $light !important;
-      background-color: $orange !important;
-      border-color: $orange !important;
-    }
   }
 }
 </style>
