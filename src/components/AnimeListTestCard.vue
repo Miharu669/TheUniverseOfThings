@@ -49,13 +49,27 @@ function heartSwap() {
 </template>
 
 <style lang="scss" scoped>
+
+h3 {
+  font-family: $Poppins;
+  font-size: 20px;
+  font-weight: 500;
+  color: $ligth;
+  margin-block: 5px 10px;
+}
+
+p {
+  font-family: $Nunito;
+  font-size: 17px;
+  color: $ligth-p;
+  margin: 0;
+}
 .anime-item {
   background: $main;
-  padding: 1em;
-  border-radius: 15px;
+  padding: 20px;
+  border-radius: 16px;
   display: flex;
   flex-direction: row;
-  align-items: center;
   position: relative;
   height: 100%;
 }
@@ -63,16 +77,14 @@ function heartSwap() {
 .anime-image {
   width: 150px;
   height: auto;
-  margin-right: 1em;
-  border-radius: 5px;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
 .contenedor-detalle {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  font-size: 20px;
-  color: $ligth-p !important;
+  gap: 5px;
 }
 
 .heart-swap {

@@ -35,8 +35,8 @@ const props = defineProps({
   <div class="list-container">
     <Spinner v-if="isLoading">Loading...</Spinner>
     <div v-else-if="error">Error: {{ error.message }}</div>
-    <div class="anime-grid" v-else>
-      <ul>
+    <div  v-else>
+      <ul class="anime-grid">
         <li v-for="anime in animes" :key="anime.getTitle()">
           <AnimeCard :anime="anime" />
         </li>
@@ -76,10 +76,17 @@ ul {
 .anime-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, auto);
+  // grid-template-rows: repeat(3, auto);
   gap: 30px;
   background-color: $dark;
   // padding: 1em;
   max-width: 1220px;
+}
+
+@media (max-width: 768px) {
+  .anime-grid {
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
 }
 </style>

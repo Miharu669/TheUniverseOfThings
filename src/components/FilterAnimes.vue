@@ -35,4 +35,11 @@
     padding: 0.5em;
     font-size: 1em;
   }
+
+  label {
+  font-family: $Nunito;
+  font-size: 17px;
+  color: $ligth-p;
+  margin-right: 20px;
+}
 </style>
