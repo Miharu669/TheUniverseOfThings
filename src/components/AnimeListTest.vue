@@ -81,6 +81,7 @@ ul {
   background-color: $dark;
   // padding: 1em;
   max-width: 1220px;
+  margin-inline: 20px;
 }
 
 @media (max-width: 768px) {
