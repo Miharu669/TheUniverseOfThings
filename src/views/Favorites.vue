@@ -2,6 +2,7 @@
 <template>
   <div>
     <h1>My Favorites</h1>
+    <AnimeListFav />
     <Pagination />
   </div>
 </template>
