@@ -5,7 +5,7 @@ const props = defineProps({
   anime: Object,
 });
 
-const heartIcon = ref("./empty-heart.svg");
+const heartIcon = ref("./src/components/icons/empty-heart.svg");
 
 function heartButtonClick() {
   if (props.anime && typeof props.anime.getTitle === "function") {
@@ -17,9 +17,9 @@ function heartButtonClick() {
 function heartSwap() {
   console.log("Current heart icon:", heartIcon.value);
   if (heartIcon.value.includes("empty-heart.svg")) {
-    heartIcon.value = "./full-heart.svg";
+    heartIcon.value = "./src/components/icons/full-heart.svg";
   } else {
-    heartIcon.value = "./empty-heart.svg";
+    heartIcon.value = "./src/components/icons/empty-heart.svg";
   }
   console.log("New heart icon:", heartIcon.value);
 }

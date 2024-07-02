@@ -70,6 +70,14 @@ document.addEventListener('DOMContentLoaded', () => {
       <p>{{ anime.getType() }}</p>
       <p v-if="anime.getGenres()">{{ anime.getGenres() }}</p>
       <p v-else>Genres: N/A</p>
+      <div class="star-rating" id="ratingValue"> 
+     <img src="/src/components/icons/empty-star.svg" data-value="1" class="star" alt="1 estrella"> 
+     <img src="/src/components/icons/empty-star.svg" data-value="2" class="star" alt="2 estrellas"> 
+     <img src="/src/components/icons/empty-star.svg" data-value="3" class="star" alt="3 estrellas"> 
+     <img src="/src/components/icons/empty-star.svg" data-value="4" class="star" alt="4 estrellas"> 
+     <img src="/src/components/icons/empty-star.svg" data-value="5" class="star" alt="5 estrellas"> 
+    </div> 
+    <!-- <p><span id="ratingValue">0</span></p> -->
     </div>
     <!-- <div class="rating-stars"> -->
 <!--       <div class="star-rating">
@@ -83,16 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
       @click="toggleFavorite"
     />
   </div>
-
-  <div class="star-rating"> 
-     <img src="./empty-star.svg" data-value="1" class="star" alt="1 estrella"> 
-     <img src="./src/components/icons/empty-star.svg" data-value="2" class="star" alt="2 estrellas"> 
-     <img src="./src/components/icons/empty-star.svg" data-value="3" class="star" alt="3 estrellas"> 
-     <img src="./src/components/icons/empty-star.svg" data-value="4" class="star" alt="4 estrellas"> 
-     <img src="./src/components/icons/empty-star.svg" data-value="5" class="star" alt="5 estrellas"> 
-    </div> 
-    <p><span id="ratingValue">0</span></p>
-
 </template>
 
 <style lang="scss" scoped>
